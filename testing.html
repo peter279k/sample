@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Austin Yu sample_homework</title>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+		<script src="app.js"></script>
+	</head>
+	<body>
+		<div data-role="page">
+			<div data-role="header">
+				<h2>旅遊景點</h2>
+			</div>
+			<div data-role="content">
+				<a id="add-btn" href="#" data-role="button" data-theme="a">增加一個景點按鈕</a>
+				<ul id="place-lists" data-role="listview" data-inset="true" data-theme="b"></ul>
+			</div>
+		</div>
+		<div id="page-contents" data-role="page">
+			<div data-role="header">
+				<a href="testing.html" data-role="button" data-theme="a" data-icon="arrow-l" data-ajax="false">回前頁</a>
+				<h2>旅遊介紹</h2>
+			</div>
+			<div id="view-content" data-role="content"></div>
+		</div>
+	</body>
+</html>
