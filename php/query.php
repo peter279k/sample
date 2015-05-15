@@ -1,7 +1,36 @@
 <?php
 	//This is your result after you using the SQL query.
-	
+	$link = null;
+	$link = new PDO("mysql:host=localhost;dbname=your-db","your-account","you-passoword");
 	$result = array();
+	if($link==null)
+	{
+		$result = "cannot link db.";
+	}
+	else
+	{
+		//example1 (It does not need to use preparing.)
+		$sql = "SELECT * FROM table_name";
+		$result = $link -> query($sql);
+		$count = 0;
+		while($res = $result -> fetch())
+		{
+			$result[$count]["field"] = $res["field"]; 
+		}
+		
+		//example2 (It needs to use preparing.)
+		$field = "where_value";
+		$sql = "SELECT * FROM table_name WHERE your-field = :filed";
+		$stmt = $link -> prepare($sql);
+		$stmt -> execute(array(":filed"=>$field));
+		
+		$count = 0;
+		while($res = $stmt -> fetch())
+		{
+			$result[$count]["field"] = $res["field"]; 
+		}
+	}
+	
 	if(empty($_POST["count"]))
 	{
 		$result[0]["tw_name"] = "日月潭";
